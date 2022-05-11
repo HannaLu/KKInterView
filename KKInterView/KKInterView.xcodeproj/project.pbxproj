@@ -14,6 +14,8 @@
 		A6868221282B997700FA3A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6868220282B997700FA3A78 /* Assets.xcassets */; };
 		A6868224282B997700FA3A78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6868222282B997700FA3A78 /* LaunchScreen.storyboard */; };
 		A6868227282B997700FA3A78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868226282B997700FA3A78 /* main.m */; };
+		A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */; };
+		A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */; };
 		B23370DA15E90BD24B6720BF /* Pods_KKInterView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,10 @@
 		A6868223282B997700FA3A78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6868225282B997700FA3A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6868226282B997700FA3A78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A6C23832282BDFAF00C1CEA3 /* FriendEntryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendEntryViewController.h; sourceTree = "<group>"; };
+		A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendEntryViewController.m; sourceTree = "<group>"; };
+		A6C23835282BE37700C1CEA3 /* KKInterView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KKInterView-Bridging-Header.h"; sourceTree = "<group>"; };
+		A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,6 @@
 				6D32EF6AA258DA3F192C3AA8 /* Pods-KKInterView.debug.xcconfig */,
 				4680DADDA907301B4C21227B /* Pods-KKInterView.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -92,11 +97,15 @@
 				A6868218282B997600FA3A78 /* SceneDelegate.m */,
 				A686821A282B997600FA3A78 /* ViewController.h */,
 				A686821B282B997600FA3A78 /* ViewController.m */,
+				A6C23832282BDFAF00C1CEA3 /* FriendEntryViewController.h */,
+				A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */,
+				A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */,
 				A686821D282B997600FA3A78 /* Main.storyboard */,
 				A6868220282B997700FA3A78 /* Assets.xcassets */,
 				A6868222282B997700FA3A78 /* LaunchScreen.storyboard */,
 				A6868225282B997700FA3A78 /* Info.plist */,
 				A6868226282B997700FA3A78 /* main.m */,
+				A6C23835282BE37700C1CEA3 /* KKInterView-Bridging-Header.h */,
 			);
 			path = KKInterView;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 				TargetAttributes = {
 					A6868210282B997600FA3A78 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -215,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */,
 				A686821C282B997600FA3A78 /* ViewController.m in Sources */,
+				A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */,
 				A6868216282B997600FA3A78 /* AppDelegate.m in Sources */,
 				A6868227282B997700FA3A78 /* main.m in Sources */,
 				A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */,
@@ -362,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GTS2KGRF24;
@@ -380,6 +393,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hannalu.KKInterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "KKInterView/KKInterView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -390,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GTS2KGRF24;
@@ -408,6 +425,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hannalu.KKInterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "KKInterView/KKInterView-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
