@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icNavPinkWithdraw.pdf",
+      "filename" : "imgCardCostco.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "imgCardCostco@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "imgCardCostco@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

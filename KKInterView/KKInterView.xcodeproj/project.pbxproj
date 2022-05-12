@@ -16,6 +16,9 @@
 		A6868227282B997700FA3A78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868226282B997700FA3A78 /* main.m */; };
 		A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */; };
 		A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */; };
+		A6C2383E282C2E2000C1CEA3 /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */; };
+		A6C23842282C30C900C1CEA3 /* ManObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23841282C30C900C1CEA3 /* ManObject.m */; };
+		A6C23845282CD35B00C1CEA3 /* FriendObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23844282CD35B00C1CEA3 /* FriendObject.m */; };
 		B23370DA15E90BD24B6720BF /* Pods_KKInterView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,12 @@
 		A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendEntryViewController.m; sourceTree = "<group>"; };
 		A6C23835282BE37700C1CEA3 /* KKInterView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KKInterView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		A6C2383C282C2E2000C1CEA3 /* FriendsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
+		A6C23840282C30C900C1CEA3 /* ManObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManObject.h; sourceTree = "<group>"; };
+		A6C23841282C30C900C1CEA3 /* ManObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManObject.m; sourceTree = "<group>"; };
+		A6C23843282CD35B00C1CEA3 /* FriendObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendObject.h; sourceTree = "<group>"; };
+		A6C23844282CD35B00C1CEA3 /* FriendObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +106,12 @@
 				A6868218282B997600FA3A78 /* SceneDelegate.m */,
 				A686821A282B997600FA3A78 /* ViewController.h */,
 				A686821B282B997600FA3A78 /* ViewController.m */,
+				A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */,
 				A6C23832282BDFAF00C1CEA3 /* FriendEntryViewController.h */,
 				A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */,
-				A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */,
+				A6C2383C282C2E2000C1CEA3 /* FriendsListViewController.h */,
+				A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */,
+				A6C2383F282C308300C1CEA3 /* Models */,
 				A686821D282B997600FA3A78 /* Main.storyboard */,
 				A6868220282B997700FA3A78 /* Assets.xcassets */,
 				A6868222282B997700FA3A78 /* LaunchScreen.storyboard */,
@@ -108,6 +120,17 @@
 				A6C23835282BE37700C1CEA3 /* KKInterView-Bridging-Header.h */,
 			);
 			path = KKInterView;
+			sourceTree = "<group>";
+		};
+		A6C2383F282C308300C1CEA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6C23840282C30C900C1CEA3 /* ManObject.h */,
+				A6C23841282C30C900C1CEA3 /* ManObject.m */,
+				A6C23843282CD35B00C1CEA3 /* FriendObject.h */,
+				A6C23844282CD35B00C1CEA3 /* FriendObject.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,9 +249,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */,
+				A6C23842282C30C900C1CEA3 /* ManObject.m in Sources */,
 				A686821C282B997600FA3A78 /* ViewController.m in Sources */,
 				A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */,
 				A6868216282B997600FA3A78 /* AppDelegate.m in Sources */,
+				A6C23845282CD35B00C1CEA3 /* FriendObject.m in Sources */,
+				A6C2383E282C2E2000C1CEA3 /* FriendsListViewController.m in Sources */,
 				A6868227282B997700FA3A78 /* main.m in Sources */,
 				A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */,
 			);
@@ -380,9 +406,9 @@
 				DEVELOPMENT_TEAM = GTS2KGRF24;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KKInterView/Info.plist;
+				INFOPLIST_KEY_NSMainNibFile = Main;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,9 +438,9 @@
 				DEVELOPMENT_TEAM = GTS2KGRF24;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KKInterView/Info.plist;
+				INFOPLIST_KEY_NSMainNibFile = Main;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
