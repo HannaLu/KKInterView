@@ -1,15 +1,14 @@
 //
-//  ManObject.h
+//  UserInfoObject.h
 //  KKInterView
 //
 //  Created by Hanna Lu on 2022/5/12.
 //
 
 #import <Foundation/Foundation.h>
+#import "FriendCellModel.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface ManObject : NSObject
+@interface UserInfoObject : NSObject <FriendCellProtocol>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *kokoId;
@@ -17,5 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithJson:(NSDictionary *)json;
 
 @end
-
-NS_ASSUME_NONNULL_END

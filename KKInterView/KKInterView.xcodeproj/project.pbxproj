@@ -17,8 +17,11 @@
 		A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */; };
 		A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */; };
 		A6C2383E282C2E2000C1CEA3 /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */; };
-		A6C23842282C30C900C1CEA3 /* ManObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23841282C30C900C1CEA3 /* ManObject.m */; };
+		A6C23842282C30C900C1CEA3 /* UserInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23841282C30C900C1CEA3 /* UserInfoObject.m */; };
 		A6C23845282CD35B00C1CEA3 /* FriendObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23844282CD35B00C1CEA3 /* FriendObject.m */; };
+		A6C23848282CDD9700C1CEA3 /* APIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23847282CDD9700C1CEA3 /* APIHelper.m */; };
+		A6C2384C282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2384B282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m */; };
+		A6C2384F282D1F2C00C1CEA3 /* FriendCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2384E282D1F2C00C1CEA3 /* FriendCellModel.m */; };
 		B23370DA15E90BD24B6720BF /* Pods_KKInterView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,10 +47,16 @@
 		A6C23836282BE37700C1CEA3 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		A6C2383C282C2E2000C1CEA3 /* FriendsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
 		A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
-		A6C23840282C30C900C1CEA3 /* ManObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManObject.h; sourceTree = "<group>"; };
-		A6C23841282C30C900C1CEA3 /* ManObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManObject.m; sourceTree = "<group>"; };
+		A6C23840282C30C900C1CEA3 /* UserInfoObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoObject.h; sourceTree = "<group>"; };
+		A6C23841282C30C900C1CEA3 /* UserInfoObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoObject.m; sourceTree = "<group>"; };
 		A6C23843282CD35B00C1CEA3 /* FriendObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendObject.h; sourceTree = "<group>"; };
 		A6C23844282CD35B00C1CEA3 /* FriendObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendObject.m; sourceTree = "<group>"; };
+		A6C23846282CDD9700C1CEA3 /* APIHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIHelper.h; sourceTree = "<group>"; };
+		A6C23847282CDD9700C1CEA3 /* APIHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIHelper.m; sourceTree = "<group>"; };
+		A6C2384A282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoCellTableViewCell.h; sourceTree = "<group>"; };
+		A6C2384B282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoCellTableViewCell.m; sourceTree = "<group>"; };
+		A6C2384D282D1F2C00C1CEA3 /* FriendCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCellModel.h; sourceTree = "<group>"; };
+		A6C2384E282D1F2C00C1CEA3 /* FriendCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,15 @@
 				310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A66D4AB62832281F00F9EB5D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A6C2384A282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.h */,
+				A6C2384B282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A6868208282B997600FA3A78 = {
@@ -111,6 +129,8 @@
 				A6C23833282BDFAF00C1CEA3 /* FriendEntryViewController.m */,
 				A6C2383C282C2E2000C1CEA3 /* FriendsListViewController.h */,
 				A6C2383D282C2E2000C1CEA3 /* FriendsListViewController.m */,
+				A66D4AB62832281F00F9EB5D /* Cell */,
+				A6C23849282CF1F000C1CEA3 /* Helper */,
 				A6C2383F282C308300C1CEA3 /* Models */,
 				A686821D282B997600FA3A78 /* Main.storyboard */,
 				A6868220282B997700FA3A78 /* Assets.xcassets */,
@@ -125,12 +145,23 @@
 		A6C2383F282C308300C1CEA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A6C23840282C30C900C1CEA3 /* ManObject.h */,
-				A6C23841282C30C900C1CEA3 /* ManObject.m */,
+				A6C23840282C30C900C1CEA3 /* UserInfoObject.h */,
+				A6C23841282C30C900C1CEA3 /* UserInfoObject.m */,
 				A6C23843282CD35B00C1CEA3 /* FriendObject.h */,
 				A6C23844282CD35B00C1CEA3 /* FriendObject.m */,
+				A6C2384D282D1F2C00C1CEA3 /* FriendCellModel.h */,
+				A6C2384E282D1F2C00C1CEA3 /* FriendCellModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A6C23849282CF1F000C1CEA3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A6C23846282CDD9700C1CEA3 /* APIHelper.h */,
+				A6C23847282CDD9700C1CEA3 /* APIHelper.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,11 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C23837282BE37700C1CEA3 /* EmptyViewController.swift in Sources */,
-				A6C23842282C30C900C1CEA3 /* ManObject.m in Sources */,
+				A6C2384F282D1F2C00C1CEA3 /* FriendCellModel.m in Sources */,
+				A6C23842282C30C900C1CEA3 /* UserInfoObject.m in Sources */,
 				A686821C282B997600FA3A78 /* ViewController.m in Sources */,
 				A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */,
 				A6868216282B997600FA3A78 /* AppDelegate.m in Sources */,
 				A6C23845282CD35B00C1CEA3 /* FriendObject.m in Sources */,
+				A6C2384C282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m in Sources */,
+				A6C23848282CDD9700C1CEA3 /* APIHelper.m in Sources */,
 				A6C2383E282C2E2000C1CEA3 /* FriendsListViewController.m in Sources */,
 				A6868227282B997700FA3A78 /* main.m in Sources */,
 				A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */,

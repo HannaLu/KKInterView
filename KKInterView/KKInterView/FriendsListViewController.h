@@ -7,10 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface FriendsListViewController : UIViewController
 
-@end
++ (FriendsListViewController *)initWithNoFriendLayout;
++ (FriendsListViewController *)initWithNoFriendLayout;
 
-NS_ASSUME_NONNULL_END
+@end

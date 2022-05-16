@@ -7,6 +7,7 @@
 
 #import "FriendEntryViewController.h"
 #import "PureLayout.h"
+#import "FriendsListViewController.h"
 
 @interface FriendEntryViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -45,6 +46,14 @@
     cell.textLabel.text = title;
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *title = self.entries[indexPath.row];
+    FriendsListViewController *controller = [[FriendsListViewController alloc] init];
+    controller.title = title;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
