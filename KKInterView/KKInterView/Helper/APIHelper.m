@@ -35,6 +35,15 @@
     }];
 }
 
+- (void)apiUrl:(NSString *)urlString andCompletion:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))completeBlock {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:urlString parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+        completeBlock(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completeBlock(nil, error);
+    }];
+}
+
 - (void)getFreindListCompletion:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))completeBlock {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:@"https://dimanyen.github.io/friend1.json" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {

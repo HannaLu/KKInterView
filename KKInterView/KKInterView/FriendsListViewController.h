@@ -9,7 +9,6 @@
 
 @interface FriendsListViewController : UIViewController
 
-+ (FriendsListViewController *)initWithNoFriendLayout;
-+ (FriendsListViewController *)initWithNoFriendLayout;
+- (instancetype)initWithApiUrl:(NSString *)urlString;
 
 @end

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.tabBar.backgroundImage = [UIImage imageNamed:@"icTabbarSettingOff"];
+    self.tabBar.backgroundImage = [UIImage imageNamed:@"imgTabbarBg"];
     self.tabBar.tintColor = UIColor.systemPinkColor;
     
     NSMutableArray<UIViewController *> *controllers = [NSMutableArray array];

@@ -51,9 +51,19 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *title = self.entries[indexPath.row];
-    FriendsListViewController *controller = [[FriendsListViewController alloc] init];
+    FriendsListViewController *controller = [[FriendsListViewController alloc] initWithApiUrl:[self apiUrlForTitle:title]];
     controller.title = title;
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (NSString *)apiUrlForTitle:(NSString *)title {
+    if ([title isEqualToString:@"無好友畫面"]) {
+        return @"https://dimanyen.github.io/friend4.json";
+    } else if ([title isEqualToString:@"好友列表含邀請"]) {
+        return @"https://dimanyen.github.io/friend3.json";
+    } else {
+        return @"";
+    }
 }
 
 @end

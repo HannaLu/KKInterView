@@ -37,4 +37,8 @@ typedef enum: NSInteger {
 /// 資料更新時間
 @property (nonatomic, strong) NSString *updateDate;
 
+- (instancetype)initWithJson:(NSDictionary *)json;
+
++ (NSMutableArray<FriendObject *> *)friendListWithJson:(NSArray *)json;
+
 @end
