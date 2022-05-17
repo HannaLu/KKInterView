@@ -18,7 +18,7 @@
 /// 個人資料
 - (void)getUerInfoCompletion:(void(^_Nullable)(NSDictionary * _Nullable responseData, NSError * _Nullable error))completeBlock;
 
-- (void)apiUrl:(NSString *)urlString andCompletion:(void(^_Nullable)(NSDictionary * _Nullable responseData, NSError * _Nullable error))completeBlock;
+- (void)apiUrl:(NSString * _Nonnull)urlString andCompletion:(void(^_Nullable)(NSDictionary * _Nullable responseData, NSError * _Nullable error))completeBlock;
 
 /// 好友列表1
 - (void)getFreindListCompletion:(void(^_Nullable)(NSDictionary * _Nullable responseData, NSError * _Nullable error))completeBlock;

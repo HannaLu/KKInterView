@@ -30,13 +30,9 @@
 		A6C23848282CDD9700C1CEA3 /* APIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C23847282CDD9700C1CEA3 /* APIHelper.m */; };
 		A6C2384C282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2384B282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m */; };
 		A6C2384F282D1F2C00C1CEA3 /* FriendCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C2384E282D1F2C00C1CEA3 /* FriendCellModel.m */; };
-		B23370DA15E90BD24B6720BF /* Pods_KKInterView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKInterView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4680DADDA907301B4C21227B /* Pods-KKInterView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKInterView.release.xcconfig"; path = "Target Support Files/Pods-KKInterView/Pods-KKInterView.release.xcconfig"; sourceTree = "<group>"; };
-		6D32EF6AA258DA3F192C3AA8 /* Pods-KKInterView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KKInterView.debug.xcconfig"; path = "Target Support Files/Pods-KKInterView/Pods-KKInterView.debug.xcconfig"; sourceTree = "<group>"; };
 		A66D4AB7283228D400F9EB5D /* EmptyFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyFriendTableViewCell.h; sourceTree = "<group>"; };
 		A66D4AB8283228D400F9EB5D /* EmptyFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyFriendTableViewCell.m; sourceTree = "<group>"; };
 		A66D4ABA283242DF00F9EB5D /* GradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
@@ -86,26 +82,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B23370DA15E90BD24B6720BF /* Pods_KKInterView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		33A4DF8D0DCF1C02B0B90971 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6D32EF6AA258DA3F192C3AA8 /* Pods-KKInterView.debug.xcconfig */,
-				4680DADDA907301B4C21227B /* Pods-KKInterView.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		71585050EE9AAEB714C17B50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				310D0E626E4748FDA59397C4 /* Pods_KKInterView.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,7 +126,6 @@
 			children = (
 				A6868213282B997600FA3A78 /* KKInterView */,
 				A6868212282B997600FA3A78 /* Products */,
-				33A4DF8D0DCF1C02B0B90971 /* Pods */,
 				71585050EE9AAEB714C17B50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -215,7 +199,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A686822A282B997700FA3A78 /* Build configuration list for PBXNativeTarget "KKInterView" */;
 			buildPhases = (
-				8E897034E6A31C29E1DDE87D /* [CP] Check Pods Manifest.lock */,
 				A686820D282B997600FA3A78 /* Sources */,
 				A686820E282B997600FA3A78 /* Frameworks */,
 				A686820F282B997600FA3A78 /* Resources */,
@@ -276,31 +259,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8E897034E6A31C29E1DDE87D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KKInterView-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A686820D282B997600FA3A78 /* Sources */ = {
@@ -464,7 +422,6 @@
 		};
 		A686822B282B997700FA3A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D32EF6AA258DA3F192C3AA8 /* Pods-KKInterView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -496,7 +453,6 @@
 		};
 		A686822C282B997700FA3A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4680DADDA907301B4C21227B /* Pods-KKInterView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
