@@ -11,7 +11,6 @@
 #import "APIHelper.h"
 #import "FriendCellModel.h"
 #import "UserInfoCellTableViewCell.h"
-#import "PureLayout.h"
 #import "EmptyFriendTableViewCell.h"
 #import "UserInfoView.h"
 #import "DeviceInfo.h"
@@ -46,6 +45,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self registerAllCells];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self fetchData];
 }
 

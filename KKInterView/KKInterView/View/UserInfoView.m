@@ -6,7 +6,6 @@
 //
 
 #import "UserInfoView.h"
-#import "PureLayout.h"
 
 @interface UserInfoView ()
 
@@ -19,30 +18,24 @@
 
 @implementation UserInfoView
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:252.f/255 green:252.f/255 blue:252.f/255 alpha:1];
         
-        // userIcon位置固定、由他來當基準
-        self.userIcon = [[UIImageView alloc] init];
+        self.userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width - 52 - 30, 22, 52, 54)];
         self.userIcon.image = [UIImage imageNamed:@"imgFriendsList"];
         [self addSubview:self.userIcon];
-        [self.userIcon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:22];
-        [self.userIcon autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:30];
-        [self.userIcon autoSetDimensionsToSize:CGSizeMake(52, 54)];
         
-        self.nameLabel = [[UILabel alloc] init];
+        CGFloat nameLabelWidth = frame.size.width - 30 - 15 - CGRectGetWidth(self.userIcon.frame) - 30;
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 30, nameLabelWidth, 18)];
         self.nameLabel.font = [UIFont fontWithName:@"PingFangTC-Medium" size:17];
         self.nameLabel.textColor = [UIColor colorWithRed:71.f/255 green:71.f/255 blue:71.f/255 alpha:1];
         self.nameLabel.text = @"";
         [self addSubview:self.nameLabel];
-        [self.nameLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:30];
-        [self.nameLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:30];
-        [self.nameLabel autoPinEdge:ALEdgeTrailing toEdge:ALEdgeLeading ofView:self.userIcon withOffset:-15];
-        [self.nameLabel autoSetDimension:ALDimensionHeight toSize:18];
         
         self.kokoIdButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.kokoIdButton.frame = CGRectMake(30, CGRectGetMaxY(self.nameLabel.frame) + 8, 100, 18);
         [self.kokoIdButton setTitleColor:[UIColor colorWithRed:71.f/255 green:71.f/255 blue:71.f/255 alpha:1] forState:UIControlStateNormal];
         self.kokoIdButton.titleLabel.font = [UIFont fontWithName:@"PingFangTC-Regular" size:13];
         [self.kokoIdButton setTitle:@"設定KOKO ID" forState:UIControlStateNormal];
@@ -53,16 +46,10 @@
         self.kokoIdButton.imageView.transform = CGAffineTransformMakeScale(-1.0, 1.0);
         
         [self addSubview:self.kokoIdButton];
-        [self.kokoIdButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.nameLabel withOffset:8];
-        [self.kokoIdButton autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:30];
-        [self.kokoIdButton autoSetDimension:ALDimensionHeight toSize:18];
         
-        self.noticeDotView = [[UIView alloc] init];
+        self.noticeDotView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.kokoIdButton.frame) + 15, CGRectGetMaxY(self.nameLabel.frame) + 12, 10, 10)];
         self.noticeDotView.backgroundColor = [UIColor colorWithRed:236.f/255 green:0.f/255 blue:140.f/255 alpha:1];
         [self addSubview:self.noticeDotView];
-        [self.noticeDotView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.nameLabel withOffset:12];
-        [self.noticeDotView autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:self.kokoIdButton withOffset:15];
-        [self.noticeDotView autoSetDimensionsToSize:CGSizeMake(10, 10)];
         self.noticeDotView.layer.cornerRadius = 5;
         self.noticeDotView.layer.masksToBounds = YES;
     }
@@ -75,6 +62,7 @@
         [self.kokoIdButton setTitle:@"設定KOKO ID" forState:UIControlStateNormal];
     } else {
         [self.kokoIdButton setTitle:[NSString stringWithFormat:@"KOKO ID：%@", user.kokoId] forState:UIControlStateNormal];
+        [self.kokoIdButton sizeToFit];
     }
     self.noticeDotView.hidden = user.kokoId.length > 0;
 }

@@ -7,7 +7,7 @@
 
 #import "EmptyFriendTableViewCell.h"
 #import "EmptyFriendView.h"
-#import "PureLayout.h"
+#import "DeviceInfo.h"
 
 @implementation EmptyFriendTableViewCell
 
@@ -16,9 +16,9 @@
     if (self) {
         self.separatorInset = UIEdgeInsetsMake(0, CGFLOAT_MAX, 0, 0);
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        EmptyFriendView *emptyView = [[EmptyFriendView alloc] init];
+        CGFloat height = UIScreen.mainScreen.bounds.size.height - [DeviceInfo topBarHeight] - 128 - [DeviceInfo bottomBarHeight];
+        EmptyFriendView *emptyView = [[EmptyFriendView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, height)];
         [self.contentView addSubview:emptyView];
-        [emptyView autoPinEdgesToSuperviewEdges];
     }
     return self;
 }

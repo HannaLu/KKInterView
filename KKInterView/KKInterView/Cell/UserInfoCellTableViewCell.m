@@ -6,7 +6,6 @@
 //
 
 #import "UserInfoCellTableViewCell.h"
-#import "PureLayout.h"
 #import "UserInfoObject.h"
 #import "UserInfoView.h"
 
@@ -23,10 +22,8 @@
     if (self) {
         self.separatorInset = UIEdgeInsetsMake(0, CGFLOAT_MAX, 0, 0);
         
-        self.userView = [[UserInfoView alloc] init];
+        self.userView = [[UserInfoView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 90)];
         [self.contentView addSubview:self.userView];
-        [self.userView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-        [self.userView autoSetDimension:ALDimensionHeight toSize:90];
     }
     return self;
 }
