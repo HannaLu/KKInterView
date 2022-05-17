@@ -13,7 +13,7 @@
 + (instancetype _Nonnull )sharedInstance;
 
 /// API error alert
-+ (UIAlertController *)alertForAPIError;
++ (UIAlertController * _Nonnull)alertForAPIError;
 
 /// 個人資料
 - (void)getUerInfoCompletion:(void(^_Nullable)(NSDictionary * _Nullable responseData, NSError * _Nullable error))completeBlock;

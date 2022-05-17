@@ -1,34 +1,16 @@
 PODS:
-  - AFNetworking (4.0.1):
-    - AFNetworking/NSURLSession (= 4.0.1)
-    - AFNetworking/Reachability (= 4.0.1)
-    - AFNetworking/Security (= 4.0.1)
-    - AFNetworking/Serialization (= 4.0.1)
-    - AFNetworking/UIKit (= 4.0.1)
-  - AFNetworking/NSURLSession (4.0.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (4.0.1)
-  - AFNetworking/Security (4.0.1)
-  - AFNetworking/Serialization (4.0.1)
-  - AFNetworking/UIKit (4.0.1):
-    - AFNetworking/NSURLSession
   - PureLayout (3.1.9)
 
 DEPENDENCIES:
-  - AFNetworking (~> 4.0)
   - PureLayout
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - PureLayout
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
 
-PODFILE CHECKSUM: 8fd0fb31d602a933cb1e2643ce20fd2f07ff9f15
+PODFILE CHECKSUM: dede844da44aabb07496a76814a9812674d84836
 
 COCOAPODS: 1.10.1

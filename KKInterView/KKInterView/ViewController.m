@@ -29,7 +29,7 @@
     [controllers addObject:accountNav];
     
     // 朋友
-    FriendEntryViewController *friend = [[FriendEntryViewController alloc] init];
+    FriendEntryViewController *friend = [[FriendEntryViewController alloc] initWithNibName:@"FriendEntryViewController" bundle:nil];
     UINavigationController *friendNav = [self customBarNavigationControllerWithRoot:friend];
     friendNav.tabBarItem = [self tabBarItem:friendNav.tabBarItem setupInsetsAndImage:@"icTabbarFriendsOn"];
     [controllers addObject:friendNav];

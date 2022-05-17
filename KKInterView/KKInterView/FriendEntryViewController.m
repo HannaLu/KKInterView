@@ -6,12 +6,11 @@
 //
 
 #import "FriendEntryViewController.h"
-#import "PureLayout.h"
 #import "FriendsListViewController.h"
 
 @interface FriendEntryViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray<NSString *> *entries;
 
 @end
@@ -22,12 +21,6 @@
     [super viewDidLoad];
     
     self.entries = @[@"無好友畫面", @"只有好友列表", @"好友列表含邀請"];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:self.tableView];
-    [self.tableView autoPinEdgesToSuperviewEdges];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 

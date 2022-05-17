@@ -19,7 +19,7 @@
 
 @interface FriendsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *entries;
 
 @property (nonatomic, strong) UserInfoObject *user;
@@ -43,14 +43,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    [self.view addSubview:self.tableView];
-    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
-    [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:[DeviceInfo topBarHeight]];
-    [self registerAllCells];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+    [self registerAllCells];
     [self fetchData];
 }
 

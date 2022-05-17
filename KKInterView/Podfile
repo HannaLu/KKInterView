@@ -7,5 +7,4 @@ target 'KKInterView' do
 
   # Pods for KKInterView
   pod 'PureLayout'
-  pod 'AFNetworking', '~> 4.0'
 end
