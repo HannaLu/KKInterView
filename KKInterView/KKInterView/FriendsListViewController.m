@@ -12,9 +12,8 @@
 #import "FriendCellModel.h"
 #import "UserInfoCellTableViewCell.h"
 #import "EmptyFriendTableViewCell.h"
-#import "UserInfoView.h"
 #import "DeviceInfo.h"
-#import "EmptyFriendView.h"
+#import "FriendPagerBar.h"
 
 @interface FriendsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -24,14 +23,13 @@
 @property (nonatomic, strong) UserInfoObject *user;
 @property (nonatomic, strong) NSMutableArray<FriendObject *> *friendList;
 @property (nonatomic, strong) NSString *apiUrlString;
-@property (nonatomic, strong) EmptyFriendView *emptyView;
 
 @end
 
 @implementation FriendsListViewController
 
 - (instancetype)initWithApiUrl:(NSString *)urlString {
-    self = [super init];
+    self = [super initWithNibName:@"FriendsListViewController" bundle:nil];
     if (self) {
         self.apiUrlString = urlString;
     }
@@ -44,6 +42,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.sectionHeaderTopPadding = 0;
     [self registerAllCells];
 }
 
@@ -179,6 +178,14 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == self.entries.count - 1) {
+        return [[FriendPagerBar alloc] init];
+    }
+    
+    return [[UIView alloc] init];
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *cellModels = self.entries[indexPath.section];
@@ -202,6 +209,13 @@
             default:
                 break;
         }
+    }
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == self.entries.count - 1) {
+        return 38;
     }
     return CGFLOAT_MIN;
 }

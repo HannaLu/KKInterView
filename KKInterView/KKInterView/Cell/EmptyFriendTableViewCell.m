@@ -14,7 +14,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.separatorInset = UIEdgeInsetsMake(0, CGFLOAT_MAX, 0, 0);
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         CGFloat height = UIScreen.mainScreen.bounds.size.height - [DeviceInfo topBarHeight] - 128 - [DeviceInfo bottomBarHeight];
         EmptyFriendView *emptyView = [[EmptyFriendView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, height)];

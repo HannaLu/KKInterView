@@ -37,7 +37,16 @@
         GradientButton *addFriendButton = [[GradientButton alloc] initWithFrame:CGRectMake((frame.size.width - 192) / 2, CGRectGetMaxY(detail.frame) + 25, 192, 40)];
         [self addSubview:addFriendButton];
         
-        UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, frame.size.height - 18 - 5, frame.size.width - 60, 18)];
+        UIView *buttonShadow = [[UIView alloc] initWithFrame:addFriendButton.frame];
+        buttonShadow.backgroundColor = [UIColor whiteColor];
+        buttonShadow.layer.cornerRadius = 20;
+        buttonShadow.layer.shadowOffset = CGSizeMake(0, 4);
+        buttonShadow.layer.shadowColor = [UIColor colorWithRed:121.f/255 green:196.f/255 blue:27.f/255 alpha:1].CGColor;
+        buttonShadow.layer.shadowRadius = 8;
+        buttonShadow.layer.shadowOpacity = 0.4;
+        [self insertSubview:buttonShadow belowSubview:addFriendButton];
+        
+        UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, frame.size.height - 18 - 20, frame.size.width - 60, 18)];
         bottomLabel.textAlignment = NSTextAlignmentCenter;
         NSDictionary *attributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:153.f/255 green:153.f/255 blue:153.f/255 alpha:1],
                                      NSFontAttributeName: [UIFont fontWithName:@"PingFangTC-Regular" size:13]};

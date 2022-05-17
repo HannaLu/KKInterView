@@ -35,10 +35,6 @@
         UIImageView *buttonIcon = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width - 24 - 8, (frame.size.height - 24) / 2, 24, 24)];
         buttonIcon.image = [UIImage imageNamed:@"icAddFriendWhite"];
         [self addSubview:buttonIcon];
-        
-        self.layer.shadowOffset = CGSizeMake(0, 4);
-        self.layer.shadowColor = [UIColor colorWithRed:121.f/255 green:196.f/255 blue:27.f/255 alpha:0.4].CGColor;
-        self.layer.shadowRadius = 8;
     }
     return self;
 }
