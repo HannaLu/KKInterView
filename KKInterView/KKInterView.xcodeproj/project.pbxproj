@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		A66D4AB9283228D400F9EB5D /* EmptyFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AB8283228D400F9EB5D /* EmptyFriendTableViewCell.m */; };
 		A66D4ABC283242DF00F9EB5D /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4ABB283242DF00F9EB5D /* GradientButton.m */; };
-		A66D4AC0283247A700F9EB5D /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4ABF283247A700F9EB5D /* UserInfoView.m */; };
 		A66D4AC328325BE100F9EB5D /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AC228325BE100F9EB5D /* DeviceInfo.m */; };
-		A66D4AC62832A22E00F9EB5D /* EmptyFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AC52832A22E00F9EB5D /* EmptyFriendView.m */; };
 		A66D4AC92832A30000F9EB5D /* FriendPagerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AC82832A30000F9EB5D /* FriendPagerBar.m */; };
 		A66D4ACB28334DB700F9EB5D /* FriendEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66D4ACA28334DB700F9EB5D /* FriendEntryViewController.xib */; };
 		A66D4ACD28334F0900F9EB5D /* FriendsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66D4ACC28334F0900F9EB5D /* FriendsListViewController.xib */; };
+		A66D4AD62833862500F9EB5D /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */; };
 		A6868216282B997600FA3A78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868215282B997600FA3A78 /* AppDelegate.m */; };
 		A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868218282B997600FA3A78 /* SceneDelegate.m */; };
 		A686821C282B997600FA3A78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A686821B282B997600FA3A78 /* ViewController.m */; };
@@ -37,16 +36,14 @@
 		A66D4AB8283228D400F9EB5D /* EmptyFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyFriendTableViewCell.m; sourceTree = "<group>"; };
 		A66D4ABA283242DF00F9EB5D /* GradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		A66D4ABB283242DF00F9EB5D /* GradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
-		A66D4ABE283247A700F9EB5D /* UserInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
-		A66D4ABF283247A700F9EB5D /* UserInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		A66D4AC128325BE100F9EB5D /* DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
 		A66D4AC228325BE100F9EB5D /* DeviceInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
-		A66D4AC42832A22E00F9EB5D /* EmptyFriendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyFriendView.h; sourceTree = "<group>"; };
-		A66D4AC52832A22E00F9EB5D /* EmptyFriendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyFriendView.m; sourceTree = "<group>"; };
 		A66D4AC72832A30000F9EB5D /* FriendPagerBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendPagerBar.h; sourceTree = "<group>"; };
 		A66D4AC82832A30000F9EB5D /* FriendPagerBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendPagerBar.m; sourceTree = "<group>"; };
 		A66D4ACA28334DB700F9EB5D /* FriendEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendEntryViewController.xib; sourceTree = "<group>"; };
 		A66D4ACC28334F0900F9EB5D /* FriendsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsListViewController.xib; sourceTree = "<group>"; };
+		A66D4AD42833862500F9EB5D /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		A6868211282B997600FA3A78 /* KKInterView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKInterView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6868214282B997600FA3A78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6868215282B997600FA3A78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,6 +99,8 @@
 				A6C2384B282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m */,
 				A66D4AB7283228D400F9EB5D /* EmptyFriendTableViewCell.h */,
 				A66D4AB8283228D400F9EB5D /* EmptyFriendTableViewCell.m */,
+				A66D4AD42833862500F9EB5D /* FriendTableViewCell.h */,
+				A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -111,10 +110,6 @@
 			children = (
 				A66D4ABA283242DF00F9EB5D /* GradientButton.h */,
 				A66D4ABB283242DF00F9EB5D /* GradientButton.m */,
-				A66D4ABE283247A700F9EB5D /* UserInfoView.h */,
-				A66D4ABF283247A700F9EB5D /* UserInfoView.m */,
-				A66D4AC42832A22E00F9EB5D /* EmptyFriendView.h */,
-				A66D4AC52832A22E00F9EB5D /* EmptyFriendView.m */,
 				A66D4AC72832A30000F9EB5D /* FriendPagerBar.h */,
 				A66D4AC82832A30000F9EB5D /* FriendPagerBar.m */,
 			);
@@ -270,8 +265,6 @@
 				A6C2384F282D1F2C00C1CEA3 /* FriendCellModel.m in Sources */,
 				A66D4AC92832A30000F9EB5D /* FriendPagerBar.m in Sources */,
 				A66D4AC328325BE100F9EB5D /* DeviceInfo.m in Sources */,
-				A66D4AC62832A22E00F9EB5D /* EmptyFriendView.m in Sources */,
-				A66D4AC0283247A700F9EB5D /* UserInfoView.m in Sources */,
 				A6C23842282C30C900C1CEA3 /* UserInfoObject.m in Sources */,
 				A66D4AB9283228D400F9EB5D /* EmptyFriendTableViewCell.m in Sources */,
 				A686821C282B997600FA3A78 /* ViewController.m in Sources */,
@@ -281,6 +274,7 @@
 				A6C2384C282CF9EF00C1CEA3 /* UserInfoCellTableViewCell.m in Sources */,
 				A6C23848282CDD9700C1CEA3 /* APIHelper.m in Sources */,
 				A6C2383E282C2E2000C1CEA3 /* FriendsListViewController.m in Sources */,
+				A66D4AD62833862500F9EB5D /* FriendTableViewCell.m in Sources */,
 				A6868227282B997700FA3A78 /* main.m in Sources */,
 				A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */,
 			);

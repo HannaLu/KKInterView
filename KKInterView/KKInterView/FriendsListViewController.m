@@ -12,6 +12,7 @@
 #import "FriendCellModel.h"
 #import "UserInfoCellTableViewCell.h"
 #import "EmptyFriendTableViewCell.h"
+#import "FriendTableViewCell.h"
 #import "DeviceInfo.h"
 #import "FriendPagerBar.h"
 
@@ -56,6 +57,7 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
     [self.tableView registerClass:UserInfoCellTableViewCell.class forCellReuseIdentifier:@"UserInfoCellTableViewCell"];
     [self.tableView registerClass:EmptyFriendTableViewCell.class forCellReuseIdentifier:@"EmptyFriendTableViewCell"];
+    [self.tableView registerClass:FriendTableViewCell.class forCellReuseIdentifier:@"FriendTableViewCell"];
 }
 
 - (void) fetchData {
@@ -123,7 +125,13 @@
         FriendCellModel *userInfo = [[FriendCellModel alloc] initWithType:FriendCellTypeUserInfo andContent:self.user];
         [self.entries addObject:@[userInfo]];
         if (self.friendList.count > 0) {
-            
+            [self updateFriendList];
+            NSMutableArray *array = [NSMutableArray array];
+            for (FriendObject *friend in self.friendList) {
+                FriendCellModel *friendModel = [[FriendCellModel alloc] initWithType:FriendCellTypeFriend andContent:friend];
+                [array addObject:friendModel];
+            }
+            [self.entries addObject:array];
         } else {
             FriendCellModel *empty = [[FriendCellModel alloc] initWithType:FriendCellTypeInviting andContent:nil];
             [self.entries addObject:@[empty]];
@@ -132,6 +140,26 @@
         self.tableView.scrollEnabled = self.friendList.count > 0;
         [self.tableView reloadData];
     });
+}
+
+- (void)updateFriendList {
+    NSMutableDictionary *friendInfo = [NSMutableDictionary dictionary];
+    for (FriendObject *friend in self.friendList) {
+        if (friendInfo[friend.friendId] == nil) {
+            friendInfo[friend.friendId] = friend;
+        } else {
+            FriendObject *friendSaved = friendInfo[friend.friendId];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"YYYYMMdd"];
+            NSDate *dateSaved = [formatter dateFromString:friendSaved.updateDate];
+            NSDate *dateNew = [formatter dateFromString:friend.updateDate];
+            if ([dateSaved compare:dateNew] == NSOrderedAscending) {
+                //dateNew 比較新
+                friendInfo[friend.friendId] = friend;
+            }
+        }
+    }
+    self.friendList = [NSMutableArray arrayWithArray:friendInfo.allValues];
 }
 
 #pragma mark - UITableViewDataSource
@@ -168,6 +196,10 @@
             case FriendCellTypeSearchBar:
                 break;
             case FriendCellTypeFriend:
+            {
+                FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendTableViewCell" forIndexPath:indexPath];
+                return cell;
+            }
                 break;
             default:
                 break;
@@ -203,8 +235,10 @@
             }
                 break;
             case FriendCellTypeSearchBar:
+                return 61;
                 break;
             case FriendCellTypeFriend:
+                return 60;
                 break;
             default:
                 break;

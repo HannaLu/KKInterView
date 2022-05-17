@@ -32,10 +32,10 @@
         self.friendBadge.textAlignment = NSTextAlignmentCenter;
         self.friendBadge.textColor = [UIColor whiteColor];
         self.friendBadge.backgroundColor = [UIColor colorWithRed:249.f/255 green:178.f/255 blue:220.f/255 alpha:1];
-        self.friendBadge.text = @"2";
         [self addSubview:self.friendBadge];
         self.friendBadge.layer.cornerRadius = 9;
         self.friendBadge.layer.masksToBounds = YES;
+        self.friendBadge.hidden = YES;
 
         UILabel *chatTag = [[UILabel alloc] initWithFrame:CGRectMake(94, 10, 26, 18)];
         chatTag.font = [UIFont fontWithName:@"PingFangTC-Medium" size:13];
@@ -49,10 +49,16 @@
         self.chatBadge.textAlignment = NSTextAlignmentCenter;
         self.chatBadge.textColor = [UIColor whiteColor];
         self.chatBadge.backgroundColor = [UIColor colorWithRed:249.f/255 green:178.f/255 blue:220.f/255 alpha:1];
-        self.chatBadge.text = @"99+";
         [self addSubview:self.chatBadge];
         self.chatBadge.layer.cornerRadius = 9;
         self.chatBadge.layer.masksToBounds = YES;
+        self.chatBadge.hidden = YES;
+        
+        UIView *indicator = [[UIView alloc] initWithFrame:CGRectMake(35, 34, 20, 3)];
+        indicator.backgroundColor = [UIColor colorWithRed:236.f/255 green:0 blue:140.f/255 alpha:1];
+        indicator.layer.cornerRadius = 1.5;
+        indicator.layer.masksToBounds = YES;
+        [self addSubview:indicator];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 37, UIScreen.mainScreen.bounds.size.width, 1)];
         line.backgroundColor = [UIColor colorWithRed:239.f/255 green:239.f/255 blue:239.f/255 alpha:1];
