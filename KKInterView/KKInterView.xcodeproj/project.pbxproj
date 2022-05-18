@@ -15,6 +15,7 @@
 		A66D4ACD28334F0900F9EB5D /* FriendsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66D4ACC28334F0900F9EB5D /* FriendsListViewController.xib */; };
 		A66D4AD62833862500F9EB5D /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */; };
 		A66D4AD9283481EB00F9EB5D /* SearchBarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4AD8283481EB00F9EB5D /* SearchBarTableViewCell.m */; };
+		A66D4ADC2834C16600F9EB5D /* InvitingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A66D4ADB2834C16600F9EB5D /* InvitingTableViewCell.m */; };
 		A6868216282B997600FA3A78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868215282B997600FA3A78 /* AppDelegate.m */; };
 		A6868219282B997600FA3A78 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6868218282B997600FA3A78 /* SceneDelegate.m */; };
 		A686821C282B997600FA3A78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A686821B282B997600FA3A78 /* ViewController.m */; };
@@ -47,6 +48,8 @@
 		A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		A66D4AD7283481EB00F9EB5D /* SearchBarTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarTableViewCell.h; sourceTree = "<group>"; };
 		A66D4AD8283481EB00F9EB5D /* SearchBarTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarTableViewCell.m; sourceTree = "<group>"; };
+		A66D4ADA2834C16600F9EB5D /* InvitingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvitingTableViewCell.h; sourceTree = "<group>"; };
+		A66D4ADB2834C16600F9EB5D /* InvitingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitingTableViewCell.m; sourceTree = "<group>"; };
 		A6868211282B997600FA3A78 /* KKInterView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKInterView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6868214282B997600FA3A78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6868215282B997600FA3A78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				A66D4AD52833862500F9EB5D /* FriendTableViewCell.m */,
 				A66D4AD7283481EB00F9EB5D /* SearchBarTableViewCell.h */,
 				A66D4AD8283481EB00F9EB5D /* SearchBarTableViewCell.m */,
+				A66D4ADA2834C16600F9EB5D /* InvitingTableViewCell.h */,
+				A66D4ADB2834C16600F9EB5D /* InvitingTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				A66D4AC328325BE100F9EB5D /* DeviceInfo.m in Sources */,
 				A6C23842282C30C900C1CEA3 /* UserInfoObject.m in Sources */,
 				A66D4AB9283228D400F9EB5D /* EmptyFriendTableViewCell.m in Sources */,
+				A66D4ADC2834C16600F9EB5D /* InvitingTableViewCell.m in Sources */,
 				A686821C282B997600FA3A78 /* ViewController.m in Sources */,
 				A6C23834282BDFAF00C1CEA3 /* FriendEntryViewController.m in Sources */,
 				A6868216282B997600FA3A78 /* AppDelegate.m in Sources */,

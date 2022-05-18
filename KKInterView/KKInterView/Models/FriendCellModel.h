@@ -21,6 +21,9 @@ typedef enum: NSInteger {
     /// 好友
     FriendCellTypeFriend = 3,
     
+    /// 無好友
+    FriendCellTypeEmpty = 4
+    
     FriendCellTypeKnown
 } FriendCellType;
 

@@ -14,6 +14,7 @@
 #import "EmptyFriendTableViewCell.h"
 #import "SearchBarTableViewCell.h"
 #import "FriendTableViewCell.h"
+#import "InvitingTableViewCell.h"
 #import "DeviceInfo.h"
 #import "FriendPagerBar.h"
 
@@ -24,7 +25,12 @@
 
 @property (nonatomic, strong) UserInfoObject *user;
 @property (nonatomic, strong) NSMutableArray<FriendObject *> *friendList;
+@property (nonatomic, strong) NSMutableArray<FriendObject *> *invitingList;
 @property (nonatomic, strong) NSString *apiUrlString;
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
+@property (nonatomic, assign) BOOL isInvitingListFolding;
 
 @end
 
@@ -46,6 +52,14 @@
     self.tableView.delegate = self;
     self.tableView.sectionHeaderTopPadding = 0;
     [self registerAllCells];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    if (@available(iOS 10.0, *)) {
+        self.tableView.refreshControl = self.refreshControl;
+    } else {
+        [self.tableView addSubview:self.refreshControl];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,8 +77,13 @@
 }
 
 - (void) fetchData {
+    if (self.editing) {
+        [self.refreshControl endRefreshing];
+        return;
+    }
     self.entries = [NSMutableArray array];
     self.friendList = [NSMutableArray array];
+    self.invitingList = [NSMutableArray array];
     
     dispatch_group_t group = dispatch_group_create();
     
@@ -120,6 +139,7 @@
     
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
         // 如果是無好友的狀態、手動把kokoId清掉以顯示未設定ID的layout
         if (self.friendList.count == 0) {
             self.user.kokoId = @"";
@@ -132,7 +152,7 @@
             [self.entries addObject:@[searchBar]];
             [self.entries addObject:[self cellModelsForFriends:self.friendList]];
         } else {
-            FriendCellModel *empty = [[FriendCellModel alloc] initWithType:FriendCellTypeInviting andContent:nil];
+            FriendCellModel *empty = [[FriendCellModel alloc] initWithType:FriendCellTypeEmpty andContent:nil];
             [self.entries addObject:@[empty]];
             
         }
@@ -143,22 +163,34 @@
 
 - (void)updateFriendList {
     NSMutableDictionary *friendInfo = [NSMutableDictionary dictionary];
+    NSMutableArray *processedFriends = [NSMutableArray array];
     for (FriendObject *friend in self.friendList) {
         if (friendInfo[friend.friendId] == nil) {
-            friendInfo[friend.friendId] = friend;
+            [processedFriends addObject:friend];
+            friendInfo[friend.friendId] = @([processedFriends indexOfObject:friend]);
         } else {
-            FriendObject *friendSaved = friendInfo[friend.friendId];
+            NSInteger index = [friendInfo[friend.friendId] integerValue];
+            FriendObject *friendSaved = processedFriends[index];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"YYYYMMdd"];
             NSDate *dateSaved = [formatter dateFromString:friendSaved.updateDate];
             NSDate *dateNew = [formatter dateFromString:friend.updateDate];
             if ([dateSaved compare:dateNew] == NSOrderedAscending) {
                 //dateNew 比較新
-                friendInfo[friend.friendId] = friend;
+                processedFriends[index] = friend;
             }
         }
     }
-    self.friendList = [NSMutableArray arrayWithArray:friendInfo.allValues];
+    
+    NSPredicate *friendPredicate = [NSPredicate predicateWithBlock:^BOOL(FriendObject *friend, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return friend.status != InviteStatusInviteYou;
+    }];
+    self.friendList = [NSMutableArray arrayWithArray:[processedFriends filteredArrayUsingPredicate:friendPredicate]];
+    
+    NSPredicate *invitingPredicate = [NSPredicate predicateWithBlock:^BOOL(FriendObject *friend, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return friend.status == InviteStatusInviteYou;
+    }];
+    self.invitingList = [NSMutableArray arrayWithArray:[processedFriends filteredArrayUsingPredicate:invitingPredicate]];
 }
 
 - (NSMutableArray<FriendCellModel *> *)cellModelsForFriends:(NSArray<FriendObject *> *)friends {
@@ -197,8 +229,7 @@
                 break;
             case FriendCellTypeInviting:
             {
-                EmptyFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EmptyFriendTableViewCell" forIndexPath:indexPath];
-                return cell;
+                
             }
                 break;
             case FriendCellTypeSearchBar:
@@ -212,6 +243,12 @@
             {
                 FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendTableViewCell" forIndexPath:indexPath];
                 [cell setupContent:model.content];
+                return cell;
+            }
+                break;
+            case FriendCellTypeEmpty:
+            {
+                EmptyFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EmptyFriendTableViewCell" forIndexPath:indexPath];
                 return cell;
             }
                 break;
@@ -239,20 +276,19 @@
         FriendCellModel *model = cellModels[indexPath.row];
         switch (model.type) {
             case FriendCellTypeUserInfo:
-            {
                 return self.isEditing ? 0 : 90;
-            }
                 break;
             case FriendCellTypeInviting:
-            {
-                return CGRectGetHeight(self.view.frame) - 128 - [DeviceInfo topBarHeight] - [DeviceInfo bottomBarHeight];
-            }
+                return self.isInvitingListFolding ? 25 + 70 + 10 + 20 : 25 + (self.invitingList.count * 70) + ((self.invitingList.count - 1) * 10) + 20;
                 break;
             case FriendCellTypeSearchBar:
                 return 61;
                 break;
             case FriendCellTypeFriend:
                 return 60;
+                break;
+            case FriendCellTypeEmpty:
+                return CGRectGetHeight(self.view.frame) - 128 - [DeviceInfo topBarHeight] - [DeviceInfo bottomBarHeight];
                 break;
             default:
                 break;
