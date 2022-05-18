@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJ9-H8-T4p">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJ9-H8-T4p">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
@@ -36,7 +36,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NJ9-H8-T4p" secondAttribute="trailing" id="SZr-m1-AA8"/>
                 <constraint firstItem="NJ9-H8-T4p" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VAu-DO-kSc"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="68"/>
+            <point key="canvasLocation" x="137.68115942028987" y="67.633928571428569"/>
         </view>
     </objects>
     <resources>

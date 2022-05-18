@@ -24,6 +24,7 @@
     if (self) {
         CGRect frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 90);
         self.backgroundColor = [UIColor colorWithRed:252.f/255 green:252.f/255 blue:252.f/255 alpha:1];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         self.userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width - 52 - 30, 22, 52, 54)];
         self.userIcon.image = [UIImage imageNamed:@"imgFriendsList"];

@@ -12,6 +12,8 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         CGSize size = CGSizeMake(UIScreen.mainScreen.bounds.size.width, 61);
         self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(30, 15, size.width - 30 - 69, 36)];
         self.searchBar.searchBarStyle = UISearchBarStyleMinimal;

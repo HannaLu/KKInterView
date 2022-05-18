@@ -60,6 +60,8 @@
     } else {
         [self.tableView addSubview:self.refreshControl];
     }
+    
+    self.isInvitingListFolding = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,6 +76,7 @@
     [self.tableView registerClass:EmptyFriendTableViewCell.class forCellReuseIdentifier:@"EmptyFriendTableViewCell"];
     [self.tableView registerClass:FriendTableViewCell.class forCellReuseIdentifier:@"FriendTableViewCell"];
     [self.tableView registerClass:SearchBarTableViewCell.class forCellReuseIdentifier:@"SearchBarTableViewCell"];
+    [self.tableView registerClass:InvitingTableViewCell.class forCellReuseIdentifier:@"InvitingTableViewCell"];
 }
 
 - (void) fetchData {
@@ -148,15 +151,16 @@
         [self.entries addObject:@[userInfo]];
         if (self.friendList.count > 0) {
             [self updateFriendList];
+            [self.entries addObject:[self cellModelType:FriendCellTypeInviting ForFriends:self.invitingList]];
+            
             FriendCellModel *searchBar = [[FriendCellModel alloc] initWithType:FriendCellTypeSearchBar andContent:nil];
             [self.entries addObject:@[searchBar]];
-            [self.entries addObject:[self cellModelsForFriends:self.friendList]];
+            [self.entries addObject:[self cellModelType:FriendCellTypeFriend ForFriends:self.friendList]];
         } else {
             FriendCellModel *empty = [[FriendCellModel alloc] initWithType:FriendCellTypeEmpty andContent:nil];
             [self.entries addObject:@[empty]];
             
         }
-        self.tableView.scrollEnabled = self.friendList.count > 0;
         [self.tableView reloadData];
     });
 }
@@ -193,10 +197,10 @@
     self.invitingList = [NSMutableArray arrayWithArray:[processedFriends filteredArrayUsingPredicate:invitingPredicate]];
 }
 
-- (NSMutableArray<FriendCellModel *> *)cellModelsForFriends:(NSArray<FriendObject *> *)friends {
+- (NSMutableArray<FriendCellModel *> *)cellModelType:(FriendCellType)type ForFriends:(NSArray<FriendObject *> *)friends {
     NSMutableArray *array = [NSMutableArray array];
     for (FriendObject *friend in friends) {
-        FriendCellModel *friendModel = [[FriendCellModel alloc] initWithType:FriendCellTypeFriend andContent:friend];
+        FriendCellModel *friendModel = [[FriendCellModel alloc] initWithType:type andContent:friend];
         [array addObject:friendModel];
     }
     return array;
@@ -210,6 +214,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([self.entries[section] isKindOfClass:NSArray.class]){
         NSArray *array = self.entries[section];
+        // 邀請section摺疊時只顯示一筆
+        if (self.invitingList.count > 0 && section == 1) {
+            return self.isInvitingListFolding ? 1 : array.count;
+        }
         return array.count;
     }
     return 0;
@@ -229,7 +237,10 @@
                 break;
             case FriendCellTypeInviting:
             {
-                
+                InvitingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InvitingTableViewCell" forIndexPath:indexPath];
+                [cell setupContent:model.content];
+                cell.isFolding = self.isInvitingListFolding;
+                return cell;
             }
                 break;
             case FriendCellTypeSearchBar:
@@ -262,6 +273,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    // searchBar
     if (section == self.entries.count - 2) {
         return [[FriendPagerBar alloc] init];
     }
@@ -279,7 +291,7 @@
                 return self.isEditing ? 0 : 90;
                 break;
             case FriendCellTypeInviting:
-                return self.isInvitingListFolding ? 25 + 70 + 10 + 20 : 25 + (self.invitingList.count * 70) + ((self.invitingList.count - 1) * 10) + 20;
+                return self.isInvitingListFolding ? 100 : 85;
                 break;
             case FriendCellTypeSearchBar:
                 return 61;
@@ -302,6 +314,13 @@
         return self.isEditing ? 0 : 38;
     }
     return CGFLOAT_MIN;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        self.isInvitingListFolding = !self.isInvitingListFolding;
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -333,9 +352,9 @@
     }];
     NSArray *result = [self.friendList filteredArrayUsingPredicate:predicate];
     if (result.count > 0) {
-        self.entries[self.entries.count - 1] = [self cellModelsForFriends:result];
+        self.entries[self.entries.count - 1] = [self cellModelType:FriendCellTypeFriend ForFriends:result];
     } else {
-        self.entries[self.entries.count - 1] = [self cellModelsForFriends:self.friendList];
+        self.entries[self.entries.count - 1] = [self cellModelType:FriendCellTypeFriend ForFriends:self.friendList];
     }
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.entries.count - 1] withRowAnimation:UITableViewRowAnimationFade];
 }

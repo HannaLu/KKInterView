@@ -22,7 +22,7 @@ typedef enum: NSInteger {
     FriendCellTypeFriend = 3,
     
     /// 無好友
-    FriendCellTypeEmpty = 4
+    FriendCellTypeEmpty = 4,
     
     FriendCellTypeKnown
 } FriendCellType;

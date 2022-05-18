@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "FriendCellModel.h"
 
 @interface InvitingTableViewCell : UITableViewCell
 
-@end
+@property (nonatomic, assign) BOOL isFolding;
+- (void)setupContent:(id <FriendCellProtocol>)content;
 
-NS_ASSUME_NONNULL_END
+@end
