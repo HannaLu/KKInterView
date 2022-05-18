@@ -12,11 +12,12 @@
 #import "FriendCellModel.h"
 #import "UserInfoCellTableViewCell.h"
 #import "EmptyFriendTableViewCell.h"
+#import "SearchBarTableViewCell.h"
 #import "FriendTableViewCell.h"
 #import "DeviceInfo.h"
 #import "FriendPagerBar.h"
 
-@interface FriendsListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FriendsListViewController () <UITableViewDataSource, UITableViewDelegate, SearchBarTableViewCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *entries;
@@ -58,6 +59,7 @@
     [self.tableView registerClass:UserInfoCellTableViewCell.class forCellReuseIdentifier:@"UserInfoCellTableViewCell"];
     [self.tableView registerClass:EmptyFriendTableViewCell.class forCellReuseIdentifier:@"EmptyFriendTableViewCell"];
     [self.tableView registerClass:FriendTableViewCell.class forCellReuseIdentifier:@"FriendTableViewCell"];
+    [self.tableView registerClass:SearchBarTableViewCell.class forCellReuseIdentifier:@"SearchBarTableViewCell"];
 }
 
 - (void) fetchData {
@@ -126,12 +128,9 @@
         [self.entries addObject:@[userInfo]];
         if (self.friendList.count > 0) {
             [self updateFriendList];
-            NSMutableArray *array = [NSMutableArray array];
-            for (FriendObject *friend in self.friendList) {
-                FriendCellModel *friendModel = [[FriendCellModel alloc] initWithType:FriendCellTypeFriend andContent:friend];
-                [array addObject:friendModel];
-            }
-            [self.entries addObject:array];
+            FriendCellModel *searchBar = [[FriendCellModel alloc] initWithType:FriendCellTypeSearchBar andContent:nil];
+            [self.entries addObject:@[searchBar]];
+            [self.entries addObject:[self cellModelsForFriends:self.friendList]];
         } else {
             FriendCellModel *empty = [[FriendCellModel alloc] initWithType:FriendCellTypeInviting andContent:nil];
             [self.entries addObject:@[empty]];
@@ -160,6 +159,15 @@
         }
     }
     self.friendList = [NSMutableArray arrayWithArray:friendInfo.allValues];
+}
+
+- (NSMutableArray<FriendCellModel *> *)cellModelsForFriends:(NSArray<FriendObject *> *)friends {
+    NSMutableArray *array = [NSMutableArray array];
+    for (FriendObject *friend in friends) {
+        FriendCellModel *friendModel = [[FriendCellModel alloc] initWithType:FriendCellTypeFriend andContent:friend];
+        [array addObject:friendModel];
+    }
+    return array;
 }
 
 #pragma mark - UITableViewDataSource
@@ -194,10 +202,16 @@
             }
                 break;
             case FriendCellTypeSearchBar:
+            {
+                SearchBarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchBarTableViewCell" forIndexPath:indexPath];
+                cell.delegate = self;
+                return cell;
+            }
                 break;
             case FriendCellTypeFriend:
             {
                 FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendTableViewCell" forIndexPath:indexPath];
+                [cell setupContent:model.content];
                 return cell;
             }
                 break;
@@ -211,7 +225,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == self.entries.count - 1) {
+    if (section == self.entries.count - 2) {
         return [[FriendPagerBar alloc] init];
     }
     
@@ -226,7 +240,7 @@
         switch (model.type) {
             case FriendCellTypeUserInfo:
             {
-                return 90;
+                return self.isEditing ? 0 : 90;
             }
                 break;
             case FriendCellTypeInviting:
@@ -248,10 +262,46 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == self.entries.count - 1) {
-        return 38;
+    if (section == self.entries.count - 2) {
+        return self.isEditing ? 0 : 38;
     }
     return CGFLOAT_MIN;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isEditing) {
+        [self setEditing:NO];
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:self.entries.count - 2];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if ([cell isKindOfClass:SearchBarTableViewCell.class]) {
+            SearchBarTableViewCell *searchBarCell = (SearchBarTableViewCell *)cell;
+            [searchBarCell.searchBar resignFirstResponder];
+        }
+        
+        NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+        [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+#pragma mark - SearchBarTableViewCellDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self setEditing:YES];
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+    [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(FriendObject *friend, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [friend.name containsString:searchText];
+    }];
+    NSArray *result = [self.friendList filteredArrayUsingPredicate:predicate];
+    if (result.count > 0) {
+        self.entries[self.entries.count - 1] = [self cellModelsForFriends:result];
+    } else {
+        self.entries[self.entries.count - 1] = [self cellModelsForFriends:self.friendList];
+    }
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.entries.count - 1] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 @end

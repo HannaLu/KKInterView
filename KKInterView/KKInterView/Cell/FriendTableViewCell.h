@@ -6,11 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "FriendCellModel.h"
 
 @interface FriendTableViewCell : UITableViewCell
 
-@end
+- (void)setupContent:(id <FriendCellProtocol>)content;
 
-NS_ASSUME_NONNULL_END
+@end

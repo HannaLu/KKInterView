@@ -48,11 +48,11 @@
         self.chatBadge.font = [UIFont fontWithName:@"PingFangTC-Medium" size:12];
         self.chatBadge.textAlignment = NSTextAlignmentCenter;
         self.chatBadge.textColor = [UIColor whiteColor];
+        self.chatBadge.text = @"99+";
         self.chatBadge.backgroundColor = [UIColor colorWithRed:249.f/255 green:178.f/255 blue:220.f/255 alpha:1];
         [self addSubview:self.chatBadge];
         self.chatBadge.layer.cornerRadius = 9;
         self.chatBadge.layer.masksToBounds = YES;
-        self.chatBadge.hidden = YES;
         
         UIView *indicator = [[UIView alloc] initWithFrame:CGRectMake(35, 34, 20, 3)];
         indicator.backgroundColor = [UIColor colorWithRed:236.f/255 green:0 blue:140.f/255 alpha:1];
